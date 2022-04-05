@@ -7,7 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private MemoryMemberRepository memberRepo = new MemoryMemberRepository();
+    private static MemoryMemberRepository memberRepo;
+
+    public MemberService(MemoryMemberRepository memberRepo) {
+        memberRepo = memberRepo;
+    }
 
     /**
      * 회원 가입
@@ -49,7 +53,7 @@ public class MemberService {
      * @param memberId
      * @return member
      */
-    public Optional<Member> findOne(Long memberId) {
-        return memberRepo.findById(memberId);
+    public Member findOne(Long memberId) {
+        return memberRepo.findById(memberId).get();
     }
 }
