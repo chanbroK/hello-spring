@@ -18,7 +18,7 @@ public class MemberService {
     /**
      * 회원 가입
      *
-     * @param member
+     * @param member 회원 가입을 위한 멤버 객체
      * @return id
      */
     public Long join(Member member) {
@@ -31,7 +31,7 @@ public class MemberService {
     /**
      * 같은 이름의 중복 회원 불가능 검사
      *
-     * @param member
+     * @param member 중복 검사를 하는 멤버
      */
     private void validateDuplicateMember(Member member) {
         Optional<Member> result = memberRepo.findByName(member.getName());
@@ -52,7 +52,7 @@ public class MemberService {
     /**
      * 특정 회원 조회
      *
-     * @param memberId
+     * @param memberId 조회할 멤버 아이디
      * @return member
      */
     public Member findOne(Long memberId) {
